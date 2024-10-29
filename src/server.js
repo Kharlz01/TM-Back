@@ -1,6 +1,7 @@
 import 'dotenv/config';
 
 import http from 'http';
+import cors from 'cors';
 import morgan from 'morgan';
 import express from 'express';
 
@@ -19,8 +20,12 @@ function main() {
 
     // Morgan para revisar peticiones en consola
     app.use(morgan('dev'));
+    // Cors para llamado entre Front y back
+    app.use(cors());
     // Para conversion de datos a JSON para lectura en JS
     app.use(express.json());
+
+
 
     // Mensaje para ver si el Backend esta ejecutandose
     app.get('/', (req, res) => {
