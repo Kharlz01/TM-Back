@@ -33,7 +33,7 @@ const Task = connection.define(
         },
         tag: {
             type: DataTypes.ENUM(
-                'not','me', 'work', 'home', 'projects', 
+                'not','personal', 'work', 'home', 'projects', 
                 'relative', 'education', 'health', 
                 'money', 'creative'), // CATEGORIAS DETERMINADAS
             allowNull: false,

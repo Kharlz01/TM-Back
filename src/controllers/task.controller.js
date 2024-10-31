@@ -260,6 +260,7 @@ export async function deleteTask(req, res) {
     // Lee el dato seleccionado
     const {
       value,
+      status,
     } = req.query;
 
     // Se prepara la busqueda
@@ -267,6 +268,7 @@ export async function deleteTask(req, res) {
     // .toLowerCase() vuelve todo minusculas
   
     const searchValue = value ? value.toLowerCase().trim() : "";
+    const sortStatus = status ? status.split('-') : [];
 
     // La condicion dice que si no hay valor de busqueda
     // Que el valor sea vacio ("")
@@ -274,14 +276,17 @@ export async function deleteTask(req, res) {
     try {
 
       // Busca en las tareas del usuario la asociada con el tag filtrado
+      // Ademas de ordenarlas segun el estado
 
       const taskBySearch = await Task.findAll({
         where: {
             userId: userId,
             tag: {
                 [Op.like]: `%${searchValue}%`
-            }
-        }
+            },
+        },
+        // order: [['name', 'desc']]
+        order: sortStatus.length ? [sortStatus] : []
       });
     
       
