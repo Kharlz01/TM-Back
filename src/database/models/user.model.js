@@ -16,7 +16,10 @@ const User = connection.define(
         password: DataTypes.STRING,
         givenName: DataTypes.STRING,
         lastName: DataTypes.STRING,
-        image: DataTypes.STRING,
+        image: {
+            type: DataTypes.STRING,
+            defaultValue: "/profile1.jpg",
+        },
     },
     {
         timestamps: true, //createdAt, updatedAt

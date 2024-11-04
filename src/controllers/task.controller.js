@@ -154,7 +154,7 @@ export async function updateTask(req, res) {
         .status(201)
         .json({
           success: true,
-          message: `Se ha actualizado la tarea: ${taskById.name}`,
+          message: `Se ha actualizado la tarea: "${taskById.name}".`,
           data: {
             ...updatedTask,
           },
