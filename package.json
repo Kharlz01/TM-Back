@@ -7,7 +7,8 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "dev": "node nodemon.js"
+    "dev": "node nodemon.js",
+    "start": "node src/server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
